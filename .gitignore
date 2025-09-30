@@ -1,0 +1,5 @@
+.vs
+bin
+obj
+TrackNStock.Api/appsettings.json
+TrackNStock.Api/TrackNStock.Api.csproj.user
