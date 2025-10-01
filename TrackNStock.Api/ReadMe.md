@@ -1,0 +1,1 @@
+UnitPrice on Product entity: Decimal type problem.
