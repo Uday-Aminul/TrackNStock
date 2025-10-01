@@ -60,8 +60,6 @@ namespace TrackNStock.Api.Data
                 Quantity = 1,
                 UnitPrice = 110,
                 SalesDate = new DateTime(2025, 10, 1, 15, 0, 0),
-                ProductId = 8801,
-                ShopOwnerId = 9901,
                 OrderId = 7701
             };
         }

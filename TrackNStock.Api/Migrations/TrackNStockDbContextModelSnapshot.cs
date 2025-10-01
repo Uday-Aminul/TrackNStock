@@ -116,17 +116,11 @@ namespace TrackNStock.Api.Migrations
                     b.Property<int>("OrderId")
                         .HasColumnType("int");
 
-                    b.Property<int>("ProductId")
-                        .HasColumnType("int");
-
                     b.Property<int>("Quantity")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("SalesDate")
                         .HasColumnType("datetime2");
-
-                    b.Property<int>("ShopOwnerId")
-                        .HasColumnType("int");
 
                     b.Property<int>("UnitPrice")
                         .HasColumnType("int");
@@ -134,10 +128,6 @@ namespace TrackNStock.Api.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("OrderId");
-
-                    b.HasIndex("ProductId");
-
-                    b.HasIndex("ShopOwnerId");
 
                     b.ToTable("Sales");
                 });
@@ -208,23 +198,7 @@ namespace TrackNStock.Api.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("TrackNStock.Api.Models.DomainModel.Product", "Product")
-                        .WithMany()
-                        .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("TrackNStock.Api.Models.DomainModel.ShopOwner", "ShopOwner")
-                        .WithMany()
-                        .HasForeignKey("ShopOwnerId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.Navigation("Order");
-
-                    b.Navigation("Product");
-
-                    b.Navigation("ShopOwner");
                 });
 #pragma warning restore 612, 618
         }

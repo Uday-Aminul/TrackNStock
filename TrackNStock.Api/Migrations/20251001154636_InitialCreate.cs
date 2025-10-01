@@ -82,8 +82,6 @@ namespace TrackNStock.Api.Migrations
                     Quantity = table.Column<int>(type: "int", nullable: false),
                     UnitPrice = table.Column<int>(type: "int", nullable: false),
                     SalesDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    ProductId = table.Column<int>(type: "int", nullable: false),
-                    ShopOwnerId = table.Column<int>(type: "int", nullable: false),
                     OrderId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
@@ -93,18 +91,6 @@ namespace TrackNStock.Api.Migrations
                         name: "FK_Sales_Orders_OrderId",
                         column: x => x.OrderId,
                         principalTable: "Orders",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Sales_Products_ProductId",
-                        column: x => x.ProductId,
-                        principalTable: "Products",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Sales_ShopOwners_ShopOwnerId",
-                        column: x => x.ShopOwnerId,
-                        principalTable: "ShopOwners",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -138,16 +124,6 @@ namespace TrackNStock.Api.Migrations
                 name: "IX_Sales_OrderId",
                 table: "Sales",
                 column: "OrderId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Sales_ProductId",
-                table: "Sales",
-                column: "ProductId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Sales_ShopOwnerId",
-                table: "Sales",
-                column: "ShopOwnerId");
         }
 
         /// <inheritdoc />
