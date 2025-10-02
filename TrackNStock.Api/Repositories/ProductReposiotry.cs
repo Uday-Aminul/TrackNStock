@@ -33,12 +33,11 @@ namespace TrackNStock.Api.Repositories
             return productDomain;
         }
 
-        public async Task<List<Product>> CreateProductAsync(Product productDomain)
+        public async Task<Product> CreateProductAsync(Product productDomain)
         {
             await _dbContext.Products.AddAsync(productDomain);
             await _dbContext.SaveChangesAsync();
-            var productDomains = await _dbContext.Products.ToListAsync();
-            return productDomains;
+            return productDomain;
         }
 
         public async Task<Product?> UpdateProductAsync(int id, Product updatedProductDomain)

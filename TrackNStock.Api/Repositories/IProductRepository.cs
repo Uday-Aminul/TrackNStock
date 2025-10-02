@@ -10,7 +10,7 @@ namespace TrackNStock.Api.Repositories
     {
         Task<List<Product>> GetAllProductsAsync();
         Task<Product?> GetProductByIdAsync(int Id);
-        Task<List<Product>> CreateProductAsync(Product productDomain);
+        Task<Product> CreateProductAsync(Product productDomain);
         Task<Product?> UpdateProductAsync(int id, Product updatedProductDomain);
         Task<List<Product>?> DeleteProductByIdAsync(int id);
     }

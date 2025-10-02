@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using TrackNStock.Api.Data;
+using TrackNStock.Api.Mappings;
 using TrackNStock.Api.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -19,6 +20,7 @@ builder.Services.AddOpenApi();
 
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
 
+builder.Services.AddAutoMapper(typeof(AutoMapperProfiles));
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
