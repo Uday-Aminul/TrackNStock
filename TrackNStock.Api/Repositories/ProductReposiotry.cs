@@ -40,7 +40,7 @@ namespace TrackNStock.Api.Repositories
             return productDomain;
         }
 
-        public async Task<Product?> UpdateProductAsync(int id, Product updatedProductDomain)
+        public async Task<Product?> UpdateProductByIdAsync(int id, Product updatedProductDomain)
         {
             var existingProductDomain = await _dbContext.Products.SingleOrDefaultAsync(product => product.Id == id);
             if (existingProductDomain is null)

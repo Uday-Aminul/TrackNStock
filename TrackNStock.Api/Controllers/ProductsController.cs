@@ -73,7 +73,7 @@ namespace TrackNStock.Api.Controllers
         public async Task<IActionResult> UpdateProduct(int id, UpdateProductRequestDto updatedProduct)
         {
             var productDomain = _mapper.Map<Product>(updatedProduct);
-            productDomain = await _productRepository.UpdateProductAsync(id, productDomain);
+            productDomain = await _productRepository.UpdateProductByIdAsync(id, productDomain);
             if (productDomain is null)
             {
                 return NotFound();
