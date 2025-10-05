@@ -10,7 +10,9 @@ using TrackNStock.Api.Repositories;
 
 namespace TrackNStock.Api.Controllers
 {
-    public class SalesController:ControllerBase
+    [ApiController]
+    [Route("api/[controller]")]
+    public class SalesController : ControllerBase
     {
         private readonly ISalesRepository _salesRepository;
         private readonly IMapper _mapper;
@@ -47,12 +49,12 @@ namespace TrackNStock.Api.Controllers
         [Route("{id}")]
         public async Task<IActionResult> DeleteSalesById(int id)
         {
-            var SalesDomain = await _salesRepository.DeleteSalesByIdAsync(id);
-            if (SalesDomain is null)
+            var SalesDomains = await _salesRepository.DeleteSalesByIdAsync(id);
+            if (SalesDomains is null)
             {
                 return NotFound();
             }
-            var SalesDto = _mapper.Map<SalesDto>(SalesDomain);
+            var SalesDto = _mapper.Map<List<SalesDto>>(SalesDomains);
 
             return Ok(SalesDto);
         }

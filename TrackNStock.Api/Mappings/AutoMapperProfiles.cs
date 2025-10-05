@@ -15,6 +15,18 @@ namespace TrackNStock.Api.Mappings
             CreateMap<Product, ProductDtoForPublic>();
             CreateMap<AddProductRequestDto, Product>();
             CreateMap<UpdateProductRequestDto, Product>();
+
+            CreateMap<Order, OrderDto>();
+            CreateMap<AddOrderRequestDto, Order>();
+            CreateMap<UpdateOrderRequestDto, Order>();
+
+            CreateMap<Sales, SalesDto>();
+            CreateMap<AddSalesRequestDto, Sales>();
+            CreateMap<UpdateSalesRequestDto, Sales>();
+
+            CreateMap<ShopOwner, ShopOwnerDto>();
+
+            //CreateMap<Product>
         }
     }
 }

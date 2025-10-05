@@ -13,6 +13,6 @@ namespace TrackNStock.Api.Models.DTOs
         public int Quantity { get; set; }
 
         public ShopOwnerDto ShopOwner { get; set; }
-        public ProductDto Product { get; set; }
+        public ProductDtoForPublic Product { get; set; }
     }
 }

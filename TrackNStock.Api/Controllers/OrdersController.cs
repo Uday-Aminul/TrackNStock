@@ -65,7 +65,7 @@ namespace TrackNStock.Api.Controllers
             var OrderDomain = _mapper.Map<Order>(newOrder);
             OrderDomain = await _OrderRepository.CreateOrderAsync(OrderDomain);
             var OrderDto = _mapper.Map<OrderDto>(OrderDomain);
-            return CreatedAtAction(nameof(GetOrderById), new { Id = OrderDomain.Id }, OrderDto);
+            return Ok(OrderDto);
         }
 
         [HttpPut]

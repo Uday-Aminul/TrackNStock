@@ -19,7 +19,7 @@ namespace TrackNStock.Api.Repositories
 
         public async Task<List<Sales>> GetAllSalesAsync()
         {
-            var SalesDomains = await _dbContext.Sales.ToListAsync();
+            var SalesDomains = await _dbContext.Sales.Include(sales=>sales.Order).ToListAsync();
             return SalesDomains;
         }
 
