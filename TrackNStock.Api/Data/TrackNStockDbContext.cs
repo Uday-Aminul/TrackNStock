@@ -62,6 +62,7 @@ namespace TrackNStock.Api.Data
                 SalesDate = new DateTime(2025, 10, 1, 15, 0, 0),
                 OrderId = 7701
             };
+            modelBuilder.Entity<Sales>().HasData(salesDemo);
         }
     }
 }
