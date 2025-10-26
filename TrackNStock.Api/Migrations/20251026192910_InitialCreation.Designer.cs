@@ -12,15 +12,15 @@ using TrackNStock.Api.Data;
 namespace TrackNStock.Api.Migrations
 {
     [DbContext(typeof(TrackNStockDbContext))]
-    [Migration("20251001154636_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20251026192910_InitialCreation")]
+    partial class InitialCreation
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "9.0.9")
+                .HasAnnotation("ProductVersion", "9.0.10")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
@@ -133,6 +133,16 @@ namespace TrackNStock.Api.Migrations
                     b.HasIndex("OrderId");
 
                     b.ToTable("Sales");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 6601,
+                            OrderId = 7701,
+                            Quantity = 1,
+                            SalesDate = new DateTime(2025, 10, 1, 15, 0, 0, 0, DateTimeKind.Unspecified),
+                            UnitPrice = 110
+                        });
                 });
 
             modelBuilder.Entity("TrackNStock.Api.Models.DomainModel.ShopOwner", b =>

@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace TrackNStock.Api.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialCreate : Migration
+    public partial class InitialCreation : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -109,6 +109,11 @@ namespace TrackNStock.Api.Migrations
                 table: "Orders",
                 columns: new[] { "Id", "OrderDate", "ProductId", "Quantity", "ShopOwnerId", "Status" },
                 values: new object[] { 7701, new DateTime(2025, 10, 1, 14, 30, 0, 0, DateTimeKind.Unspecified), 8801, 1, 9901, "Pending" });
+
+            migrationBuilder.InsertData(
+                table: "Sales",
+                columns: new[] { "Id", "OrderId", "Quantity", "SalesDate", "UnitPrice" },
+                values: new object[] { 6601, 7701, 1, new DateTime(2025, 10, 1, 15, 0, 0, 0, DateTimeKind.Unspecified), 110 });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Orders_ProductId",
