@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using TrackNStock.Api.Models.DomainModel;
 using TrackNStock.Api.Models.DTOs;
@@ -23,6 +24,7 @@ namespace TrackNStock.Api.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "Reader, Writer")]
         public async Task<IActionResult> GetAllProducts()
         {
             var productDomains = await _productRepository.GetAllProductsAsync();
