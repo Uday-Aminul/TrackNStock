@@ -24,11 +24,11 @@ namespace TrackNStock.Api.Controllers
         }
 
         [HttpGet]
-        [Authorize(Roles = "Reader, Writer")]
+        //[Authorize(Roles = "Reader, Writer")]
         public async Task<IActionResult> GetAllProducts()
         {
             var productDomains = await _productRepository.GetAllProductsAsync();
-            var productDtos = _mapper.Map<List<ProductDtoForPublic>>(productDomains);
+            var productDtos = _mapper.Map<List<ProductDto>>(productDomains);
 
             return Ok(productDtos);
         }
@@ -42,7 +42,7 @@ namespace TrackNStock.Api.Controllers
             {
                 return NotFound();
             }
-            var productDto = _mapper.Map<ProductDtoForPublic>(productDomain);
+            var productDto = _mapper.Map<ProductDto>(productDomain);
 
             return Ok(productDto);
         }
@@ -56,7 +56,7 @@ namespace TrackNStock.Api.Controllers
             {
                 return NotFound();
             }
-            var productDto = _mapper.Map<ProductDtoForPublic>(productDomain);
+            var productDto = _mapper.Map<ProductDto>(productDomain);
 
             return Ok(productDto);
         }
@@ -66,7 +66,7 @@ namespace TrackNStock.Api.Controllers
         {
             var productDomain = _mapper.Map<Product>(newProduct);
             productDomain = await _productRepository.CreateProductAsync(productDomain);
-            var productDto = _mapper.Map<ProductDtoForPublic>(productDomain);
+            var productDto = _mapper.Map<ProductDto>(productDomain);
             return CreatedAtAction(nameof(GetProductById), new { Id = productDomain.Id }, productDto);
         }
 
@@ -80,7 +80,7 @@ namespace TrackNStock.Api.Controllers
             {
                 return NotFound();
             }
-            var productDto = _mapper.Map<ProductDtoForPublic>(productDomain);
+            var productDto = _mapper.Map<ProductDto>(productDomain);
             return Ok(productDto);
         }
     }

@@ -3,3 +3,10 @@ bin
 obj
 TrackNStock.Api/appsettings.json
 TrackNStock.Api/TrackNStock.Api.csproj.user
+
+
+# Frontend
+tracknstock-frontend
+
+tracknstock-frontend-react-app/node_modules
+tracknstock-frontend-react-app/dist

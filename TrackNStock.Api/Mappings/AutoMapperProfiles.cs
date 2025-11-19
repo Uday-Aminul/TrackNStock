@@ -8,13 +8,15 @@ using TrackNStock.Api.Models.DTOs;
 
 namespace TrackNStock.Api.Mappings
 {
-    public class AutoMapperProfiles:Profile
+    public class AutoMapperProfiles : Profile
     {
         public AutoMapperProfiles()
         {
             CreateMap<Product, ProductDtoForPublic>();
             CreateMap<AddProductRequestDto, Product>();
             CreateMap<UpdateProductRequestDto, Product>();
+
+            CreateMap<Product, ProductDto>();
 
             CreateMap<Order, OrderDto>();
             CreateMap<AddOrderRequestDto, Order>();
