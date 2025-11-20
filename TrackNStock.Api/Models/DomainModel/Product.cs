@@ -14,5 +14,6 @@ namespace TrackNStock.Api.Models.DomainModel
         public int Quantity { get; set; }
         public string? Description { get; set; }
         public decimal TotalPrice => UnitPrice * Quantity;
+        public bool Sold { get; set; } = false;
     }
 }

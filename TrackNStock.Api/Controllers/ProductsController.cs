@@ -34,6 +34,16 @@ namespace TrackNStock.Api.Controllers
         }
 
         [HttpGet]
+        [Route("Sold")]
+        public async Task<IActionResult> GetAllSoldProducts()
+        {
+            var productDomains = await _productRepository.GetAllSoldProductsAsync();
+            var productDtos = _mapper.Map<List<ProductDto>>(productDomains);
+
+            return Ok(productDtos);
+        }
+
+        [HttpGet]
         [Route("{id}")]
         public async Task<IActionResult> GetProductById(int id)
         {
@@ -56,7 +66,7 @@ namespace TrackNStock.Api.Controllers
             {
                 return NotFound();
             }
-            var productDto = _mapper.Map<ProductDto>(productDomain);
+            var productDto = _mapper.Map<List<ProductDto>>(productDomain);
 
             return Ok(productDto);
         }
@@ -82,6 +92,14 @@ namespace TrackNStock.Api.Controllers
             }
             var productDto = _mapper.Map<ProductDto>(productDomain);
             return Ok(productDto);
+        }
+
+        [HttpPatch("{id}/sell")]
+        public async Task<IActionResult> SellProduct(int id)
+        {
+            await _productRepository.SellProductByIdAsync(id);
+
+            return NoContent();
         }
     }
 }

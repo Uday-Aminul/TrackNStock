@@ -19,7 +19,13 @@ namespace TrackNStock.Api.Repositories
 
         public async Task<List<Product>> GetAllProductsAsync()
         {
-            var productDomains = await _dbContext.Products.ToListAsync();
+            var productDomains = await _dbContext.Products.Where(product => product.Sold == false).ToListAsync();
+            return productDomains;
+        }
+
+        public async Task<List<Product>> GetAllSoldProductsAsync()
+        {
+            var productDomains = await _dbContext.Products.Where(product => product.Sold == true).ToListAsync();
             return productDomains;
         }
 
@@ -71,6 +77,18 @@ namespace TrackNStock.Api.Repositories
 
             var productDomains = await _dbContext.Products.ToListAsync();
             return productDomains;
+        }
+
+        public async Task SellProductByIdAsync(int id)
+        {
+            var existingProductDomain = await _dbContext.Products.SingleOrDefaultAsync(product => product.Id == id);
+            if (existingProductDomain is null)
+            {
+                throw new Exception("Product not found");
+            }
+
+            existingProductDomain.Sold = true;
+            await _dbContext.SaveChangesAsync();
         }
     }
 }

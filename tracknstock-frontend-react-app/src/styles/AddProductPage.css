@@ -1,0 +1,92 @@
+/* Add Product page styles - card form matching app theme */
+.addProductForm {
+	width: 100%;
+	max-width: 620px;
+	margin: 12px auto;
+	background: #ffffff;
+	padding: 20px 22px;
+	border-radius: 12px;
+	box-shadow: 0 8px 30px rgba(33, 53, 71, 0.06);
+	box-sizing: border-box;
+	color: #213547;
+}
+
+.addProductForm h3 {
+	margin: 0 0 12px 0;
+	font-size: 1.25rem;
+	color: #233247;
+}
+
+.addProductForm form {
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+}
+
+.addProductForm form > div {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+}
+
+.addProductForm label {
+	min-width: 130px;
+	color: #445668;
+	font-weight: 600;
+}
+
+.addProductForm input[type="text"],
+.addProductForm input[type="number"] {
+	flex: 1;
+	padding: 10px 12px;
+	border-radius: 8px;
+	border: 1px solid #e6e9ef;
+	background: #fbfbfe;
+	font-size: 0.98rem;
+	color: #213547;
+}
+
+.addProductForm input:focus {
+	outline: none;
+	border-color: #7b73ff;
+	box-shadow: 0 6px 20px rgba(123,115,255,0.08);
+}
+
+.addProductForm .form-actions {
+	display: flex;
+	justify-content: flex-end;
+	gap: 10px;
+	margin-top: 6px;
+}
+
+.addProductForm input[type="button"],
+.addProductForm input[type="submit"] {
+	padding: 10px 16px;
+	border-radius: 10px;
+	border: none;
+	cursor: pointer;
+	font-weight: 700;
+}
+
+.addProductForm input[type="button"] {
+	background: #f0f2f6;
+	color: #213547;
+}
+
+.addProductForm input[type="submit"] {
+	background: linear-gradient(90deg,#7b73ff,#5da1ff);
+	color: #fff;
+}
+
+@media (max-width: 720px) {
+	.addProductForm {
+		padding: 14px;
+		max-width: 100%;
+		margin: 8px;
+	}
+	.addProductForm form > div { flex-direction: column; align-items: stretch; }
+	.addProductForm label { min-width: 0; }
+	.addProductForm .form-actions { justify-content: stretch; }
+	.addProductForm input[type="button"], .addProductForm input[type="submit"] { width: 100%; }
+}
+

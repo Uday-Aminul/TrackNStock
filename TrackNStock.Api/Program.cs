@@ -91,6 +91,25 @@ builder.Services.AddCors(options =>
     });
 });
 
+// In ASP.NET Core Startup.cs / Program.cs
+builder.Services.AddCors(options =>
+{
+    options.AddDefaultPolicy(policy =>
+    {
+        policy.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://localhost:5174");
+    });
+});
+
+builder.Services.AddCors(options =>
+{
+    options.AddDefaultPolicy(policy =>
+    {
+        policy.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://localhost:5173");
+    });
+});
+
+
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -104,7 +123,8 @@ if (app.Environment.IsDevelopment())
     });
 }
 
-app.UseCors("AllowReactApp");
+//app.UseCors("AllowReactApp");
+app.UseCors();
 
 app.UseHttpsRedirection();
 app.UseAuthentication();

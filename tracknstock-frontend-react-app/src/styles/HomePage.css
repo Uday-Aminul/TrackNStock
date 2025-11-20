@@ -1,0 +1,273 @@
+
+/* Homepage layout and visual styles */
+.homepage-container {
+  min-height: 100vh;
+  background: linear-gradient(120deg, #f9fbff 0%, #fff6f9 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #213547;
+  width: 100%;
+  box-sizing: border-box;
+  padding-top: 32px;
+  font-size: 16px; /* base font size for homepage */
+}
+
+.homepage-header {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 36px 20px 8px;
+}
+
+.homepage-title {
+  margin: 0;
+  font-size: 2.8rem; /* slightly larger */
+  font-weight: 700;
+  color: #213547;
+  letter-spacing: -0.5px;
+}
+
+.product-section {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.product-card {
+  width: 100%;
+  max-width: 1100px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(33, 53, 71, 0.08);
+  padding: 22px;
+  box-sizing: border-box;
+  margin: 0 auto;
+}
+
+.add-btn {
+  background: linear-gradient(90deg, #7b73ff, #5da1ff);
+  color: white;
+  padding: 12px 18px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 700;
+  margin-bottom: 12px;
+  font-size: 1rem;
+}
+.add-btn:hover { opacity: 0.95; }
+
+/* Sold Products button (frontend only) */
+.sold-btn {
+  background: linear-gradient(90deg, #6e6ef8, #b86bff);
+  color: white;
+  padding: 12px 18px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 700;
+  margin-left: 12px;
+  margin-bottom: 12px;
+  font-size: 1rem;
+}
+.sold-btn:hover { opacity: 0.95; }
+
+/* Search input (frontend-only) */
+.search-input {
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #e6e9ef;
+  background: #fff;
+  color: #213547;
+  width: 240px;
+  /* leave right padding to make room for inline button */
+  padding-right: 44px;
+  font-size: 0.98rem;
+  transition: box-shadow 0.12s ease, width 0.18s ease;
+}
+.search-input:focus {
+  outline: none;
+  box-shadow: 0 6px 20px rgba(123,115,255,0.08);
+  width: 320px;
+}
+
+/* wrapper that holds the input and inline search button */
+.search-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+/* Inline search button positioned inside the input */
+.search-wrapper .search-btn {
+  position: absolute;
+  right: 6px;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 32px;
+  min-width: 32px;
+  padding: 0 8px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  background: linear-gradient(90deg,#6a9cff,#4da1ff);
+  color: #fff;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.search-wrapper .search-btn:hover { opacity: 0.95; }
+
+/* toolbar to align action buttons */
+.product-list-toolbar {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 0;
+  /* shift the toolbar left by adding right padding so it aligns above the Actions column */
+  padding-right: 70px; /* moved 20px to the right (smaller padding moves the button right) */
+}
+
+/* Header row inside the product card: title at left, actions (button) at right */
+.product-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2px;
+  margin-bottom: 0;
+}
+.product-card-title {
+  margin: 0;
+  font-size: 1.25rem;
+  color: #233247;
+  font-weight: 700;
+}
+
+/* Product list table — inside the card */
+.product-card .product-list-wrapper table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 0;
+  font-size: 15px; /* larger table text */
+}
+
+.product-list-wrapper { padding: 0; }
+
+.product-card .product-list-wrapper th,
+.product-card .product-list-wrapper td {
+  border-bottom: 1px solid #eee;
+  padding: 14px 16px;
+  text-align: left;
+  font-size: 1.05rem; /* slightly larger table text (headers & rows) */
+}
+
+.product-card .product-list-wrapper th {
+  background-color: transparent;
+  color: #445668;
+  font-weight: 600;
+}
+
+.product-card .product-list-wrapper tr:nth-child(even) {
+  background-color: #fbfbfe;
+}
+
+.product-card .product-list-wrapper button {
+  padding: 6px 10px;
+  margin: 0 4px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.product-card .product-list-wrapper button:hover {
+  opacity: 0.9;
+}
+
+/* Responsive adjustments */
+@media (max-width: 720px) {
+  .homepage-title { font-size: 1.8rem; }
+  .product-card { padding: 14px; }
+  .add-btn { width: auto; font-size: 0.95rem; padding: 10px 12px; }
+  .product-card-header { flex-direction: column; align-items: stretch; gap: 8px; }
+  .product-list-toolbar { justify-content: flex-start; }
+}
+
+@media (max-width: 960px) {
+  /* reduce offset on narrower screens */
+  .product-list-toolbar { padding-right: 20px; }
+}
+
+@media (max-width: 520px) {
+  /* remove offset on small screens so button stays flush */
+  .product-list-toolbar { padding-right: 0; }
+}
+
+@media (max-width: 420px) {
+  /* slightly smaller table text on very small screens */
+  .product-card .product-list-wrapper th,
+  .product-card .product-list-wrapper td {
+    font-size: 0.98rem;
+  }
+}
+
+/* style the simple input buttons used in ProductList */
+.product-card .product-list-wrapper input[type="button"] {
+  padding: 8px 10px;
+  border-radius: 6px;
+  border: none;
+  background: #e6e9ef;
+  cursor: pointer;
+  margin-right: 6px;
+}
+.product-card .product-list-wrapper input[type="button"]:hover {
+  background: #d8def0;
+}
+
+/* Row action buttons (Edit / Delete) */
+.product-card .product-list-wrapper .row-btn {
+  font-size: 0.95rem;
+  padding: 6px 10px;
+  margin-right: 8px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  color: #fff;
+  min-width: 64px;
+  box-shadow: 0 2px 6px rgba(33, 53, 71, 0.08);
+  transition: transform 0.08s ease, box-shadow 0.12s ease, opacity 0.12s ease;
+}
+.product-card .product-list-wrapper .row-btn:active { transform: translateY(1px); }
+
+.product-card .product-list-wrapper .row-btn.edit {
+  background: linear-gradient(90deg,green);
+}
+.product-card .product-list-wrapper .row-btn.edit:hover {
+  opacity: 0.95;
+  box-shadow: 0 4px 12px rgba(51,198,122,0.12);
+}
+
+.product-card .product-list-wrapper .row-btn.delete {
+  background: linear-gradient(90deg, red);
+}
+.product-card .product-list-wrapper .row-btn.delete:hover {
+  opacity: 0.95;
+  box-shadow: 0 4px 12px rgba(255,75,75,0.12);
+}
+
+/* Sell button styling (visual only) */
+.product-card .product-list-wrapper .row-btn.sell {
+  background: linear-gradient(90deg, #ffb347, #ffcc33);
+  color: #1b1b1b;
+}
+.product-card .product-list-wrapper .row-btn.sell:hover {
+  opacity: 0.98;
+  box-shadow: 0 6px 18px rgba(255,170,60,0.12);
+}
+
+
+
